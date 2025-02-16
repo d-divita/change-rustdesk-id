@@ -9,29 +9,32 @@ This PowerShell script automates the process of updating the RustDesk ID and pas
   - Generating a random 9-digit number
   - Entering a custom value
 - Generate a new random password for RustDesk
-- Securely store RustDesk ID and password in Bitwarden
-- Automatic installation of Bitwarden CLI if not present
-- Support for custom Bitwarden server URLs
 
 ## Prerequisites
 
 - Windows operating system
 - PowerShell 5.1 or later
 - RustDesk installed on the system
-- Bitwarden account (optional, for secure storage)
-- Internet connection (for Bitwarden CLI installation and synchronization)
 
 ## Installation
 
 1. Clone this repository or download the script file:
    ```
-   git clone https://github.com/yourusername/rustdesk-config-update.git
+   git clone https://github.com/d-divita/change-rustdesk-id.git
    ```
    or download `rustdesk-config-update.ps1` directly.
 
-2. Ensure PowerShell execution policy allows running scripts. You may need to run:
+2. Ensure that PowerShell execution policy allows running scripts:
    ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   Get-ExecutionPolicy -List
+   ```
+4. If not, you may need to run:
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+   ```
+5. You can revert PowerShell execution policy to default value by running:
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope CurrentUser
    ```
 
 ## Usage
@@ -51,7 +54,6 @@ This PowerShell script automates the process of updating the RustDesk ID and pas
 4. Follow the on-screen prompts to:
    - Choose a new RustDesk ID
    - Confirm the updates
-   - Optionally save the information to Bitwarden
 
 ## Configuration
 
@@ -60,9 +62,7 @@ The script doesn't require any pre-configuration. All necessary inputs are promp
 ## Security Considerations
 
 - The script generates a random 16-character password for RustDesk.
-- Bitwarden is used for secure storage of RustDesk credentials.
-- The Bitwarden CLI session is cleared after use.
-- No sensitive information is stored within the script itself.
+- No sensitive information is stored or sent anywhere.
 
 ## Contributing
 
@@ -81,7 +81,6 @@ Distributed under the MIT License. See `LICENSE` file for more information.
 ## Acknowledgements
 - [This Reddit Comment](https://old.reddit.com/r/rustdesk/comments/140zfl0/any_way_to_set_custom_id/jnftk2t/)
 - [RustDesk](https://rustdesk.com/)
-- [Bitwarden](https://bitwarden.com/)
 - [PowerShell](https://docs.microsoft.com/en-us/powershell/)
 
 ## Support
